@@ -1,0 +1,34 @@
+backend/
+│
+├── src/
+│   ├── config/
+│   │   └── db.js
+│
+│   ├── controllers/
+│   │   ├── product.controller.js
+│   │   ├── order.controller.js
+│   │   └── user.controller.js
+│
+│   ├── services/
+│   │   ├── product.service.js
+│   │   ├── order.service.js
+│   │   └── user.service.js
+│
+│   ├── models/
+│   │   ├── Product.js
+│   │   ├── Order.js
+│   │   └── User.js
+│
+│   ├── routes/
+│   │   ├── product.routes.js
+│   │   ├── order.routes.js
+│   │   └── user.routes.js
+│
+│   ├── middlewares/
+│   │   └── auth.middleware.js
+│
+│   └── app.js
+│
+├── .env
+├── .gitignore
+└── server.js
