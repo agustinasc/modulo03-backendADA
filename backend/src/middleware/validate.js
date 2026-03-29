@@ -1,4 +1,4 @@
-export const validateRequired = (fields) => (req, res, next) => {
+export const validateUser = (fields) => (req, res, next) => {
   for (let field of fields) {
     if (!req.body[field]) {
       return res.status(400).json({

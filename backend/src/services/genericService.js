@@ -36,7 +36,7 @@ export const update = async (path, id, newData) =>{
 export const remove = async (path, id) =>{
     const items = await readJSON(path)
 
-    const filtered = items.filter( i => i.id  === Number(id))
+    const filtered = items.filter( i => i.id  !== Number(id))
     if(items.length === filtered.length) return false
 
     await writeJSON(path, filtered)

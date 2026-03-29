@@ -2,17 +2,22 @@ backend/
 │
 ├── src/
 │   ├── config/
-│   │   └── db.js
+│   │   └── env.js
 │
 │   ├── controllers/
-│   │   ├── product.controller.js
-│   │   ├── order.controller.js
-│   │   └── user.controller.js
+│   │   ├── productController.js
+│   │   ├── orderController.js
+│   │   └── userController.js
 │
+│   ├── data/
+│   │   ├── order.json
+│   │   ├── products.json
+│   │   └── users.json
 │   ├── services/
-│   │   ├── product.service.js
-│   │   ├── order.service.js
-│   │   └── user.service.js
+│   │   ├── genericService.js
+│   │   ├── productService.js
+│   │   ├── orderService.js
+│   │   └── userService.js
 │
 │   ├── models/
 │   │   ├── Product.js
@@ -25,9 +30,14 @@ backend/
 │   │   └── user.routes.js
 │
 │   ├── middlewares/
-│   │   └── auth.middleware.js
+│   │   └── auth.js
+│   │   └── error.js
+│   │   └── validate.js
+|
+│   ├── utils/
+│   │   └── fileHandler.js
 │
-│   └── app.js
+│   └── server.js
 │
 ├── .env
 ├── .gitignore

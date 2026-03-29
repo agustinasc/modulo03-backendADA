@@ -1,8 +1,92 @@
 [
   {
-    "id": 1774655055376,
-    "name": "Té2",
-    "price": 80,
+    "id": 1,
+    "name": "Café Espresso",
+    "price": 1200,
+    "stock": 50
+  },
+  {
+    "id": 2,
+    "name": "Café Latte",
+    "price": 1800,
+    "stock": 40
+  },
+  {
+    "id": 3,
+    "name": "Cappuccino",
+    "price": 1700,
+    "stock": 35
+  },
+  {
+    "id": 4,
+    "name": "Café Americano",
+    "price": 1300,
+    "stock": 45
+  },
+  {
+    "id": 5,
+    "name": "Mocha",
+    "price": 1900,
+    "stock": 30
+  },
+  {
+    "id": 6,
+    "name": "Té Verde",
+    "price": 1100,
+    "stock": 25
+  },
+  {
+    "id": 7,
+    "name": "Té Negro",
+    "price": 1000,
+    "stock": 20
+  },
+  {
+    "id": 8,
+    "name": "Chocolate Caliente",
+    "price": 2000,
+    "stock": 15
+  },
+  {
+    "id": 9,
+    "name": "Medialuna",
+    "price": 800,
+    "stock": 60
+  },
+  {
+    "id": 10,
+    "name": "Tostado de Jamón y Queso",
+    "price": 2500,
+    "stock": 20
+  },
+  {
+    "id": 11,
+    "name": "Muffin de Chocolate",
+    "price": 1500,
+    "stock": 25
+  },
+  {
+    "id": 12,
+    "name": "Brownie",
+    "price": 1600,
+    "stock": 18
+  },
+  {
+    "id": 13,
+    "name": "Cheesecake",
+    "price": 2200,
+    "stock": 12
+  },
+  {
+    "id": 14,
+    "name": "Lemon Pie",
+    "price": 2100,
     "stock": 10
+  },
+  {
+    "id": 15,
+    "name": "Croissant",
+    "price": 900,
+    "stock": 40
   }
 ]
