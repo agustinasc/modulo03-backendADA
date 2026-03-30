@@ -3,5 +3,25 @@
     "id": 1774581605117,
     "email": "maria@email.com",
     "password": "$2b$10$YFpfTB/FF.41EyGBQomQ2OYFJblkQUOXVlhk1n83bHDcYjY3/bEqK"
+  },
+  {
+    "id": 1774830881615,
+    "email": "agustina@email.com",
+    "password": "$2b$10$U7CXgZrxmx7svIScDg6tJ.81nfUSx4s1dPECAUV8rp7Wk5018zQcy"
+  },
+  {
+    "id": 1774830892867,
+    "email": "Test1@email.com",
+    "password": "$2b$10$mxP67wLkjC4NSdaGKuBJRuaSZty4BR4fFCS4CXMrob5SetLz3YqV2"
+  },
+  {
+    "id": 1774830899443,
+    "email": "Test2@email.com",
+    "password": "$2b$10$CUPBubUTxUpCqMbvLRyBNe.7GiKGv2TOSZqjAlLIm5M5PzPwR16Ry"
+  },
+  {
+    "id": 1774910327283,
+    "email": "test5@amil.com",
+    "password": "$2b$10$1OlIQJlNyZvvtfnII9/l1em/PAJprcvewPMR9CpkeiiXywaFpMDfi"
   }
 ]

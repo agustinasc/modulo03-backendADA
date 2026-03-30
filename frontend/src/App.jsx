@@ -1,5 +1,4 @@
 import { AppRouter } from './routes/AppRouter'
-import { Product } from './components/Product'
 
 function App() {
 

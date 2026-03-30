@@ -32,14 +32,25 @@ export const Products = () => {
 
   if (loading) return <p className="products-loading">Cargando...</p>
 
+  const onRegister = () => {
+    navigate("/register")
+    console.log("Ingrese un email y password");
+    //alert("Su usuario ha sido registrado")
+  }
+  const onLogin = () =>{
+    navigate("/login")
+    console.log("Ingrese su email y password");
+        
+  }
+
   const onAdd = () =>{
-      navigate("/formAdd")
-      console.log("Agregar producto");
+    navigate("/formAdd")
+    console.log("Agregar producto");
         
   }
   const onEdit = (product) =>{
-      console.log("Editar producto", product);
-      navigate(`/formAdd/${product.id}`, { state: { product } });
+    console.log("Editar producto", product);
+    navigate(`/formAdd/${product.id}`, { state: { product } });
         
   }
 
@@ -64,9 +75,18 @@ export const Products = () => {
 
   return (
     <div className="products-container">
+      <div>
         <button onClick={onAdd} className="product-button">
             ➕ Agregar Producto
         </button>
+        <button onClick={onLogin} className="product-button">
+            Login
+        </button>
+        <button  onClick={onRegister} className="product-button">
+            Registrar Usuario
+        </button>
+
+      </div>
       <h1 className="products-title">Productos</h1>
 
       {products.length === 0 ? (

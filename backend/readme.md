@@ -121,17 +121,6 @@ Respuesta:
 
 ---
 
-### 📦 Pedidos
-
-* `GET /orders`
-* `POST /orders`
-* `PUT /orders/:id`
-* `DELETE /orders/:id`
-
----
-
-
-
 ## 🧠 Arquitectura
 
 El proyecto sigue una arquitectura por capas:
