@@ -1,12 +1,12 @@
-
+const API_URL = ""
 
 export const getProducts = async () => {
-    const res = await fetch(`/products`)
+    const res = await fetch(`${API_URL}/products`)
     return res.json()
 }
 
 export const createProduct = async(data) =>{
-    const res = await fetch(`/products`, {
+    const res = await fetch(`${API_URL}/products`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -17,7 +17,7 @@ export const createProduct = async(data) =>{
 }
 
 export const loginUser = async (credentials) => {
-    const response = await fetch(`/users/login`, {
+    const response = await fetch(`${API_URL}/users/login`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -32,7 +32,7 @@ export const loginUser = async (credentials) => {
 }
 
 export const registerUser = async (userData) => {
-  const response = await fetch(`/users/register`, {
+  const response = await fetch(`${API_URL}/users/register`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
