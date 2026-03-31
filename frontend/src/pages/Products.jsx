@@ -3,8 +3,11 @@ import { Product } from "../components/Product";
 import { useNavigate } from "react-router-dom";
 import "../styles/Products.css"
 
+const API_URL = import.meta.env.VITE_API_URL;
+
+
 const getProducts = async () => {
-  const res = await fetch("http://localhost:3000/products");
+  const res = await fetch(`${API_URL}/products`);
   const data = await res.json();
   console.log("DATA", data);
   return data;
@@ -60,7 +63,7 @@ export const Products = () => {
   if (!confirmDelete) return;
 
   try {
-    await fetch(`http://localhost:3000/products/${product.id}`, {
+    await fetch(`${API_URL}/products/${product.id}`, {
       method: "DELETE"
     });
 
