@@ -5,15 +5,15 @@ import productRoutes from "./routes/product.routes.js"
 import userRoutes from "./routes/user.routes.js"
 import {errorMiddleware }from "./middleware/error.js"
 import cors from "cors"
+import path from "path";
+import { fileURLToPath } from "url";
 
 dotenv.config()
 
 const app = express()
-
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json())
-
 //Para conectarlo con React
 app.use(cors())
 
@@ -22,10 +22,21 @@ app.use("/users", userRoutes)
 app.use("/products", productRoutes)
 app.use("/orders", orderRoutes)
 
-// si no entra en ninguna ruta
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// servir archivos estáticos
+app.use(express.static(path.join(__dirname, "../../frontend/dist")));
+
+// fallback para React Router
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../../frontend/dist/index.html"));
+});
+
+/* // si no entra en ninguna ruta
 app.use((req, res) => {
     res.status(404).json({error: "Ruta no encontrada"})
-})
+}) */
 
 //errores internos
 app.use(errorMiddleware);
@@ -33,5 +44,6 @@ app.use(errorMiddleware);
 app.listen(PORT, () => {
     console.log(`Servidor corriendo en ${PORT}`)
 })
+
 
 export default app
