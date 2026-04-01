@@ -5,7 +5,7 @@ import { authMiddleware } from "../middleware/auth.js";
 const router = Router()
 
 router.get("/",  getProducts)
-router.post("/",  authMiddleware, createProduct)
+router.post("/",  createProduct)
 router.put("/:id",  authMiddleware, updateProduct)
 router.delete("/:id",  authMiddleware, deleteProduct)
 
