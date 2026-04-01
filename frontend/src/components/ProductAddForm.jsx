@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useParams, useLocation } from "react-router-dom";
 import "../styles/Form.css"
 
+const API_URL = import.meta.env.VITE_API_URL;
 
 export const ProductAddForm = () => {
   const { id } = useParams();
@@ -19,7 +20,7 @@ export const ProductAddForm = () => {
 
   useEffect(() => {
   if (!productToEdit && id) {
-    fetch(`http://localhost:3000/products/${id}`)
+    fetch(`${API_URL}/products/${id}`)
       .then(res => res.json())
       .then(data => setForm(data));
   }
@@ -48,7 +49,7 @@ export const ProductAddForm = () => {
 
   try {
     if(id) {
-       await fetch(`http://localhost:3000/products/${id}`, {
+       await fetch(`${API_URL}/products/${id}`, {
       method: "PUT", 
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(productData)
@@ -56,7 +57,7 @@ export const ProductAddForm = () => {
     alert("Su producto ha sido modificado")
     navigate("/");
     } else {
-      await fetch("http://localhost:3000/products", {
+      await fetch(`${API_URL}/products`, {
         method: "POST",
         headers: { "Content-Type": "application/json"},
         body: JSON.stringify(newProduct)
