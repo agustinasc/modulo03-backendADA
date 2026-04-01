@@ -1,5 +1,6 @@
 import "../styles/Product.css";
 
+/// CARD DE PRODUCTO ///
 export const Product = ({ product, onEdit, onDelete }) => {   
 
     return (

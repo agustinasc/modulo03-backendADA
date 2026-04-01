@@ -1,6 +1,14 @@
 const API_URL = import.meta.env.VITE_API_URL;
-
 console.log("API:", API_URL)
+
+const getAuthHeaders = () => {
+  const token = localStorage.getItem("token");
+
+  return {
+    "Content-Type": "application/json",
+    ...(token && { Authorization: `Bearer ${token}` })
+  };
+};
 
 export const getProducts = async () => {
     const res = await fetch(`${API_URL}/products`)
@@ -11,13 +19,34 @@ export const getProducts = async () => {
 export const createProduct = async(data) =>{
     const res = await fetch(`${API_URL}/products`, {
         method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
+        headers: getAuthHeaders(),
         body: JSON.stringify(data)
     })
     return res.json()
 }
+
+export const updateProduct = async (id, data) => {
+  const res = await fetch(`${API_URL}/products/${id}`, {
+    method: "PUT",
+    headers: getAuthHeaders(),
+    body: JSON.stringify(data)
+  });
+  return res.json();
+};
+
+export const deleteProduct = async (id) => {
+  const res = await fetch(`${API_URL}/products/${id}`, {
+    method: "DELETE",
+    headers: getAuthHeaders()
+  });
+
+  if(!res.ok){
+    throw new Error("Error al eliminar el producto");
+    
+  }
+
+  return res.json();
+};
 
 export const loginUser = async (credentials) => {
     const response = await fetch(`${API_URL}/users/login`, {

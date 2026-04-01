@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { Product } from "../components/Product";
 import { useNavigate } from "react-router-dom";
+import { Product } from "../components/Product";
+import { deleteProduct } from "../api/client";
 import "../styles/Products.css"
 
 const API_URL = import.meta.env.VITE_API_URL;
@@ -12,6 +13,9 @@ const getProducts = async () => {
   console.log("DATA", data);
   return data;
 };
+
+
+///// LISTA DE PRODUCTOS ////
 
 export const Products = () => {
   const navigate = useNavigate();
@@ -63,9 +67,7 @@ export const Products = () => {
   if (!confirmDelete) return;
 
   try {
-    await fetch(`${API_URL}/products/${product.id}`, {
-      method: "DELETE"
-    });
+    await deleteProduct(product.id)
 
     setProducts(prev => prev.filter(p => p.id !== product.id));
     alert("Su producto ha sido eliminado");

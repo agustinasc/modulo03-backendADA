@@ -1,9 +1,13 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useParams, useLocation } from "react-router-dom";
+import { createProduct, updateProduct } from "../api/client";
 import "../styles/Form.css"
 
 const API_URL = import.meta.env.VITE_API_URL;
+
+
+///FORMULARIO PARA AGREGAR Y EDITAR PRODUCTOS ////
 
 export const ProductAddForm = () => {
   const { id } = useParams();
@@ -19,7 +23,7 @@ export const ProductAddForm = () => {
   });
 
   useEffect(() => {
-  if (!productToEdit && id) {
+  if (!productToEdit && id) { 
     fetch(`${API_URL}/products/${id}`)
       .then(res => res.json())
       .then(data => setForm(data));
@@ -35,12 +39,6 @@ export const ProductAddForm = () => {
  const handleSubmit = async (e) => {
   e.preventDefault();
 
-  const newProduct = {
-    ...form,
-    price: Number(form.price),
-    stock: Number(form.stock)
-  };
-
   const productData = {
     ...form,
     price: Number(form.price),
@@ -49,19 +47,11 @@ export const ProductAddForm = () => {
 
   try {
     if(id) {
-       await fetch(`${API_URL}/products/${id}`, {
-      method: "PUT", 
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(productData)
-    })
-    alert("Su producto ha sido modificado")
-    navigate("/");
+      await updateProduct(id, productData)
+      alert("Su producto ha sido modificado")
+      navigate("/");
     } else {
-      await fetch(`${API_URL}/products`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json"},
-        body: JSON.stringify(newProduct)
-      });
+      await createProduct(productData)
       alert("Su producto ha sido agregado")
       navigate("/");
 
