@@ -83,9 +83,14 @@ export const Products = () => {
   return (
     <div className="products-container">
 
-      <div>
+      <div> 
         {user && <span>Hola, {user.email} 👋</span>}
-        <button  onClick={() => {logout(); navigate("/login") }}>  Cerrar sesión </button>
+
+        {user && (
+          <button onClick={() => { logout(); navigate("/login"); }}>
+            Cerrar sesión
+          </button>
+        )}
       </div>
 
       <div>
