@@ -52,13 +52,22 @@ export const ProductAddForm = () => {
       navigate("/");
     } else {
       await createProduct(productData)
-      alert("Su producto ha sido agregado")
-      navigate("/");
-
+      alert("Su producto ha sido agregado")  
     }
+    navigate("/");
 
   } catch (error) {
-    console.error("Error al guardar:", error);
+    console.error("Error al guardar:", error)
+
+    //CASO NO AUTORIZADO
+    if (error.response?.status === 401) {
+      alert("Debés iniciar sesión para realizar esta acción");
+      navigate("/login");
+    } 
+    //PARA OTROS ERRORES
+    else {
+      alert("Ocurrió un error al guardar el producto");
+    }
   }
 };
 

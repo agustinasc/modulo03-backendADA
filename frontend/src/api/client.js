@@ -22,6 +22,12 @@ export const createProduct = async(data) =>{
         headers: getAuthHeaders(),
         body: JSON.stringify(data)
     })
+
+    if (!res.ok) {
+      const error = new Error("Error en la petición");
+      error.status = res.status; // PARA MOSTRAR EL ERROR EN EL ALERT
+      throw error;
+    }
     return res.json()
 }
 
@@ -31,6 +37,13 @@ export const updateProduct = async (id, data) => {
     headers: getAuthHeaders(),
     body: JSON.stringify(data)
   });
+ 
+  if (!res.ok) {
+    const error = new Error("Error en la petición");
+    error.status = res.status; // PARA MOSTRAR EL ERROR EN EL ALERT
+    throw error;
+  } 
+
   return res.json();
 };
 
