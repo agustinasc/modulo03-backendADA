@@ -87,7 +87,7 @@ export const Products = () => {
         {user && <span>Hola, {user.email} 👋</span>}
 
         {user && (
-          <button onClick={() => { logout(); navigate("/login"); }}>
+          <button onClick={() => { logout(); navigate("/"); }}>
             Cerrar sesión
           </button>
         )}
