@@ -9,19 +9,19 @@ export const AuthProvider = ({ children }) => {
   const login = async (email, password) => {
     const data = await loginUser({ email, password });
 
-    setUser(data.user);
-
     // guardar token
     localStorage.setItem("token", data.token);
+    
+    setUser(data.user);
   };
 
-/*   const logout = () => {
-    setUser(null);
+  const logout = () => {
     localStorage.removeItem("token");
-  }; */
+    setUser(null);
+  };
 
   return (
-    <AuthContext.Provider value={{ user, login }}>
+    <AuthContext.Provider value={{ user, login, logout }}>
       {children}
     </AuthContext.Provider>
   );

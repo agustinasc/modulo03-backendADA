@@ -134,9 +134,23 @@ El proyecto sigue una arquitectura por capas:
 
 ## 📌 Notas
 
-* Los datos se almacenan en archivos JSON (no base de datos)
-* Se utiliza bcrypt para hashear contraseñas
-* Se implementa middleware de autenticación con JWT
+* Los datos se almacenan en archivos JSON (no se utiliza base de datos).
+* Se utiliza bcrypt para el hash de contraseñas.
+* Se implementa autenticación mediante JWT (JSON Web Tokens).
+* Se aplican middlewares para validación de tokens y manejo de errores.
+
+## ⚠️ Consideraciones sobre persistencia de datos
+
+En el entorno de producción (Render), los datos no se persisten en archivos `.json`.
+
+Esto se debe a que el sistema de archivos es temporal (ephemeral), por lo que cualquier cambio realizado (POST, PUT, DELETE) se pierde al reiniciar el servicio.
+
+Por este motivo:
+
+* Los datos pueden visualizarse correctamente mediante los endpoints.
+* Sin embargo, los cambios no se guardan de forma permanente en producción.
+
+Para pruebas con persistencia real, se recomienda ejecutar el proyecto en entorno local o utilizar una base de datos como MongoDB.
 
 
 ---

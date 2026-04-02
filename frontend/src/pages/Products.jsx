@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import {useAuth} from "../components/AuthContext"
 import { Product } from "../components/Product";
 import { deleteProduct } from "../api/client";
 import "../styles/Products.css"
@@ -19,7 +20,8 @@ const getProducts = async () => {
 
 export const Products = () => {
   const navigate = useNavigate();
-  
+  const {user, logout} = useAuth()
+
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -80,6 +82,12 @@ export const Products = () => {
 
   return (
     <div className="products-container">
+
+      <div>
+        {user && <span>Hola, {user.email} 👋</span>}
+        <button  onClick={() => {logout(); navigate("/login") }}>  Cerrar sesión </button>
+      </div>
+
       <div>
         <button onClick={onAdd} className="product-button">
             ➕ Agregar Producto

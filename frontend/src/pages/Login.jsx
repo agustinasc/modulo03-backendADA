@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useAuth } from "../components/AuthContext";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "../styles/Login.css"
 
 const Login = () => {
@@ -34,6 +34,8 @@ const handleSubmit = async (e) => {
   }
 };
 
+
+
   return (
    <div className="login-container">
     <h2>Login</h2>
@@ -59,9 +61,7 @@ const handleSubmit = async (e) => {
     </form>
     <p>
       ¿No tenés cuenta? 
-      <button onClick={navigate("/register")}>
-        Registrate
-      </button>
+      <Link to="/register">Registrate</Link>
     </p>
   </div>
   );
