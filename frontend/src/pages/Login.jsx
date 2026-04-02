@@ -58,7 +58,10 @@ const handleSubmit = async (e) => {
       <button type="submit">Ingresar</button>
     </form>
     <p>
-      ¿No tenés cuenta? <a href="/register">Registrate</a>
+      ¿No tenés cuenta? 
+      <button onClick={navigate("/register")}>
+        Registrate
+      </button>
     </p>
   </div>
   );

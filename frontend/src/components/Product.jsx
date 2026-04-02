@@ -8,7 +8,7 @@ export const Product = ({ product, onEdit, onDelete }) => {
             <div>
                 <h3 className="product-title">{product.name}</h3>
                 <p className="product-price">${product.price}</p>
-                <p className="product-stock">${product.stock}</p>
+                <p className="product-stock">unidades{product.stock}</p>
 
             </div>
             <div>                
